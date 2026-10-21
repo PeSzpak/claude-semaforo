@@ -1,0 +1,16 @@
+{
+  "name": "semaforo",
+  "owner": {
+    "name": "Pedro Szpak"
+  },
+  "metadata": {
+    "description": "Semáforo do Claude Code: uma janelinha que mostra se ele está pensando, te esperando ou pronto."
+  },
+  "plugins": [
+    {
+      "name": "semaforo",
+      "source": "./plugins/semaforo",
+      "description": "Semáforo flutuante que mostra se o Claude está pensando, esperando você ou pronto. Windows, WSL, macOS e Linux."
+    }
+  ]
+}

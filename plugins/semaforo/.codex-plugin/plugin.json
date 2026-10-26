@@ -1,0 +1,17 @@
+{
+  "name": "semaforo",
+  "version": "1.1.0",
+  "description": "Semáforo flutuante que mostra se o Codex está pensando, esperando você ou pronto. Windows, WSL, macOS e Linux.",
+  "author": {
+    "name": "Pedro Szpak"
+  },
+  "repository": "https://github.com/PeSzpak/claude-semaforo",
+  "keywords": ["status", "notificação", "hooks"],
+  "hooks": "./hooks/codex.json",
+  "interface": {
+    "displayName": "Semáforo",
+    "shortDescription": "Mostra se o Codex está pensando, te esperando ou pronto",
+    "developerName": "Pedro Szpak",
+    "category": "Productivity"
+  }
+}

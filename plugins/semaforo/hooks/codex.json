@@ -1,0 +1,54 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume",
+        "hooks": [
+          { "type": "command", "command": "bash \"${PLUGIN_ROOT}/scripts/abrir.sh\"", "timeout": 15 }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          { "type": "command", "command": "bash \"${PLUGIN_ROOT}/scripts/estado.sh\" pensando Codex", "timeout": 10 }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          { "type": "command", "command": "bash \"${PLUGIN_ROOT}/scripts/estado.sh\" pensando Codex", "timeout": 10 }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          { "type": "command", "command": "bash \"${PLUGIN_ROOT}/scripts/estado.sh\" esperando Codex", "timeout": 10 }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "bash \"${PLUGIN_ROOT}/scripts/estado.sh\" pronto Codex", "timeout": 10 }
+        ]
+      }
+    ],
+    "Interrupt": [
+      {
+        "hooks": [
+          { "type": "command", "command": "bash \"${PLUGIN_ROOT}/scripts/estado.sh\" pronto Codex", "timeout": 10 }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          { "type": "command", "command": "bash \"${PLUGIN_ROOT}/scripts/estado.sh\" offline Codex", "timeout": 10 }
+        ]
+      }
+    ]
+  }
+}

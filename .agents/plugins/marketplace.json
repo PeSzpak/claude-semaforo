@@ -1,0 +1,20 @@
+{
+  "name": "semaforo",
+  "interface": {
+    "displayName": "Semáforo"
+  },
+  "plugins": [
+    {
+      "name": "semaforo",
+      "source": {
+        "source": "local",
+        "path": "./plugins/semaforo"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

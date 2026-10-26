@@ -19,7 +19,7 @@ $arqPos = Join-Path $Pasta 'posicao.txt'
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         WindowStyle="None" AllowsTransparency="True" Background="Transparent"
         Topmost="True" ShowInTaskbar="False" ResizeMode="NoResize"
-        SizeToContent="WidthAndHeight" Title="Claude">
+        SizeToContent="WidthAndHeight" Title="Semáforo">
   <Border CornerRadius="18" Background="#E6181A1F" BorderBrush="#33FFFFFF" BorderThickness="1" Padding="12,14,12,10">
     <Border.Effect><DropShadowEffect BlurRadius="16" ShadowDepth="2" Opacity="0.5"/></Border.Effect>
     <StackPanel HorizontalAlignment="Center">

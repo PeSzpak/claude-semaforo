@@ -41,7 +41,7 @@ def misturar(hex1, hex2, t):
 
 
 raiz = tk.Tk()
-raiz.title("Claude")
+raiz.title("Semáforo")
 raiz.overrideredirect(True)
 raiz.attributes("-topmost", True)
 raiz.configure(bg=FUNDO)

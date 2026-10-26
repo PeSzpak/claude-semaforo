@@ -1,6 +1,6 @@
 {
   "name": "semaforo",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Semáforo flutuante que mostra se o Claude está pensando, esperando você ou pronto. Windows, WSL, macOS e Linux.",
   "author": {
     "name": "Pedro Szpak"

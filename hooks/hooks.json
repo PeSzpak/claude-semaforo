@@ -1,0 +1,76 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "name": "semaforo",
+            "type": "command",
+            "command": "bash \"${extensionPath}/plugins/semaforo/scripts/abrir.sh\"",
+            "timeout": 15000
+          }
+        ]
+      }
+    ],
+    "BeforeAgent": [
+      {
+        "hooks": [
+          {
+            "name": "semaforo",
+            "type": "command",
+            "command": "bash \"${extensionPath}/plugins/semaforo/scripts/estado.sh\" pensando Gemini",
+            "timeout": 10000
+          }
+        ]
+      }
+    ],
+    "AfterTool": [
+      {
+        "hooks": [
+          {
+            "name": "semaforo",
+            "type": "command",
+            "command": "bash \"${extensionPath}/plugins/semaforo/scripts/estado.sh\" pensando Gemini",
+            "timeout": 10000
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "name": "semaforo",
+            "type": "command",
+            "command": "bash \"${extensionPath}/plugins/semaforo/scripts/estado.sh\" esperando Gemini",
+            "timeout": 10000
+          }
+        ]
+      }
+    ],
+    "AfterAgent": [
+      {
+        "hooks": [
+          {
+            "name": "semaforo",
+            "type": "command",
+            "command": "bash \"${extensionPath}/plugins/semaforo/scripts/estado.sh\" pronto Gemini",
+            "timeout": 10000
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "name": "semaforo",
+            "type": "command",
+            "command": "bash \"${extensionPath}/plugins/semaforo/scripts/estado.sh\" offline Gemini",
+            "timeout": 10000
+          }
+        ]
+      }
+    ]
+  }
+}

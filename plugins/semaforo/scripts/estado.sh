@@ -22,7 +22,7 @@ fi
 
 # Nome do projeto = última parte do cwd (aceita / e \ do Windows)
 cwd=$(campo cwd)
-cwd=${cwd:-$PWD}
+cwd=${cwd:-${GEMINI_CWD:-$PWD}}
 cwd=${cwd%[\\/]}
 projeto=${cwd##*[\\/]}
 [ -n "$agente" ] && projeto="$agente · $projeto"

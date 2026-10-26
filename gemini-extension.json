@@ -1,0 +1,5 @@
+{
+  "name": "semaforo",
+  "version": "1.1.0",
+  "description": "Semáforo flutuante que mostra se o Gemini está pensando, esperando você ou pronto."
+}

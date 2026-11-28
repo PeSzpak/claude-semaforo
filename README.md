@@ -2,6 +2,8 @@
 
 Uma janelinha flutuante que mostra o que o seu agente de IA está fazendo, para você não ficar olhando o terminal. Funciona com **Claude Code** (terminal e aba Code do app Claude Desktop), **Codex** (CLI e app) e **Gemini CLI**.
 
+![Os cinco estados da janela no macOS: Pensando, Te esperando, Pronto, Erro e Offline](docs/media/estados.webp)
+
 | Luz | Estado | Quando |
 |---|---|---|
 | 🟡 (pisca) | **Pensando…** | Você mandou uma mensagem ou ele está usando ferramentas |
@@ -97,7 +99,38 @@ plugins/semaforo/
 └── commands/abrir.md      # /semaforo:abrir
 ```
 
+```mermaid
+flowchart LR
+  A[Claude Code / Codex / Gemini CLI] -- evento do hook --> B[scripts/estado.sh]
+  B -- "estado|horário|projeto" --> C[(~/.claude-semaforo/estado.txt)]
+  D[ui/ da plataforma] -- lê a cada 300 ms --> C
+  E[SessionStart ou /semaforo:abrir] --> F[scripts/abrir.sh] --> D
+```
+
+Evento de cada agente e o estado que ele grava (Claude Code, em `plugins/semaforo/hooks/hooks.json`):
+
+| Evento | Estado |
+|---|---|
+| `SessionStart` | abre a janela (`abrir.sh`) |
+| `UserPromptSubmit`, `PostToolUse` | `pensando` |
+| `PreToolUse` de `AskUserQuestion` ou `ExitPlanMode`, `Notification` | `esperando` (notificação de inatividade é ignorada) |
+| `Stop` | `pronto` |
+| `StopFailure` | `erro` |
+| `SessionEnd` | `offline` |
+
+O Codex usa `hooks/codex.json` e o Gemini CLI usa `hooks/hooks.json` na raiz, com a mesma ideia.
+
 Com várias sessões abertas ao mesmo tempo, a janela mostra a que mudou por último.
+
+### Testar sem agente
+
+Com a janela aberta (`bash plugins/semaforo/scripts/abrir.sh </dev/null`), troque o estado à mão:
+
+```bash
+for e in pensando esperando pronto erro offline; do
+  bash plugins/semaforo/scripts/estado.sh "$e" Teste </dev/null; sleep 2
+done
+```
 
 ## Desinstalar
 
